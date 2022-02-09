@@ -6,7 +6,7 @@ import "./index.css";
 
 const App = () => (
   <div className="container">
-    <Button value={"Ja"}>MFE1</Button>
+    <Button value={""}>MFE1</Button>
     <div>Name: MFE1</div>
     <div>Framework: react</div>
     <div>Language: JavaScript</div>
