@@ -6,6 +6,7 @@ class Button extends React.Component {
     super(props);
     this.state = {
       data: [],
+      isValid: false,
     };
   }
 
@@ -24,6 +25,7 @@ class Button extends React.Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({
+          isValid: true,
           data: data,
         });
       })
@@ -41,18 +43,20 @@ class Button extends React.Component {
       */
       .catch((err) => {
         this.setState({
+          isValid: false,
           data: [],
         });
+        alert("請確認輸入的帳號是否有誤");
         console.error(err);
       });
   };
 
   render() {
-    const { data } = this.state;
+    const { data, isValid } = this.state;
     let members = data;
     let comp;
 
-    if (members.id) {
+    if (isValid) {
       comp = (
         <>
           <button onClick={this.handleChange}>查詢</button>
